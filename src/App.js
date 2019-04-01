@@ -5,6 +5,7 @@ import Profile from "./Components/Profile";
 import Nav from "./Components/Nav";
 import Auth from "./Auth/Auth";
 import Callback from "./Components/Callback";
+import Public from "./Components/Public";
 
 class App extends Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class App extends Component {
               )
             }
           />
+          <Route path="/public" component={Public} />
         </div>
       </>
     );
