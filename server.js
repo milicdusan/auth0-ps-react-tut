@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
+const checkScope = require("express-jwt-authz");
 
 const checkJwt = jwt({
   // Dynamically provide a signing key based on the kid in the header
@@ -34,6 +35,18 @@ app.get("/public", function(request, response) {
 app.get("/private", checkJwt, function(request, response) {
   response.json({
     message: "Hello from a private api"
+  });
+});
+
+app.get("/courses", checkJwt, checkScope(["read:courses"]), function(
+  request,
+  response
+) {
+  response.json({
+    courses: [
+      { id: 1, title: "Building apps with react and redux" },
+      { id: 2, title: "Creating reusable react components" }
+    ]
   });
 });
 
