@@ -1,5 +1,4 @@
 import auth0 from "auth0-js";
-import { json } from "C:/Users/dmilic/AppData/Local/Microsoft/TypeScript/3.3/node_modules/@types/body-parser";
 
 export default class Auth {
   constructor(history) {
@@ -86,6 +85,7 @@ export default class Auth {
     const grantedScopes = (
       JSON.parse(localStorage.getItem("scopes")) || ""
     ).split(" ");
+    console.log(grantedScopes);
     return scopes.every(scope => grantedScopes.includes(scope));
   }
 }
