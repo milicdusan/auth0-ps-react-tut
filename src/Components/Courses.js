@@ -6,7 +6,7 @@ export class Courses extends Component {
   };
 
   componentDidMount() {
-    fetch("/course", {
+    fetch("/courses", {
       headers: {
         Authorization: `Bearer ${this.props.auth.getAccessToken()}`
       }

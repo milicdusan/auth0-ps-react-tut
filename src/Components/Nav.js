@@ -22,7 +22,7 @@ export class Nav extends Component {
               <Link to="/private">Private</Link>
             </li>
           )}
-          {isAuthenticated() && userHasScopes(["courses:read"]) && (
+          {isAuthenticated() && userHasScopes(["read:courses"]) && (
             <li>
               <Link to="/courses">Courses</Link>
             </li>
